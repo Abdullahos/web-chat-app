@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+</head>
+<body>
+<form action="#" th:object="${messageForm}" method="POST" th:action="@{'/home'}">
+    <label for="newMessageText">Submit a new message: </label>
+    <input type="text" id="newMessageText" name="newMessageText" th:field="*{text}">
+    <input type="submit">
+</form>
+
+<form action="logout"  method="post" >
+    <input type="submit" value="logout">
+</form>
+
+    <div th:each="msg : ${greetings}">
+        <span th:text="${msg.username}">Username</span>: <span th:text="${msg.messagetext}">Hello, world!</span>
+    </div>
+</body>
+</html>
+
